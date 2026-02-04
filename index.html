@@ -1,97 +1,153 @@
+import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { motion } from "framer-motion"; import { Globe, Smartphone, ShieldCheck, ShoppingBag, MessageCircle, Mail, Star } from "lucide-react";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jobrg Web Solutions</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f5f5f5;
-}
-header {
-    background: #111;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
-}
-.card {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    background: #000;
-    color: white;
-    font-size: 16px;
-}
-</style>
-</head>
+export default function JobrgWebSolutions() {
 
-<body>
+const whatsappNumber = "27812640405"; const emailAddress = "jobrgwebsolutions@gmail.com";
 
-<header>
-<h1>Jobrg Web Solutions</h1>
-<p>Professional Websites for Small Businesses</p>
-</header>
+return ( <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-900">
 
-<section>
-<h2>Our Services</h2>
+{/* WhatsApp Floating Button */}
+  <a
+    href={`https://wa.me/${whatsappNumber}`}
+    target="_blank"
+    className="fixed bottom-6 right-6 z-50"
+  >
+    <Button className="rounded-full shadow-xl p-4 flex gap-2 bg-blue-600 hover:bg-blue-700">
+      <MessageCircle /> WhatsApp
+    </Button>
+  </a>
 
-<div class="card">
-<h3>Business Websites</h3>
-<p>Modern websites for companies and small businesses.</p>
+  {/* Header */}
+  <header className="bg-white shadow-sm sticky top-0 z-40">
+    <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 className="text-2xl font-bold text-blue-700">Jobrg Web Solutions</h1>
+      <div className="hidden md:flex gap-6 text-sm">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  {/* Hero */}
+  <section className="px-6 py-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 className="text-4xl md:text-5xl font-bold text-blue-800">
+        Professional Websites That Grow Your Business Online
+      </h2>
+      <p className="mt-6 text-lg text-gray-600">
+        Fast, modern and mobile-friendly websites designed for business success.
+      </p>
+      <div className="mt-8 flex gap-4">
+        <Button className="bg-blue-600 hover:bg-blue-700 rounded-2xl">Get Started</Button>
+        <Button variant="outline" className="rounded-2xl">View Pricing</Button>
+      </div>
+    </div>
+
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="bg-white rounded-2xl shadow-xl p-8"
+    >
+      <h3 className="text-xl font-semibold mb-4">Why Choose Us?</h3>
+      <ul className="space-y-3 text-gray-600">
+        <li>✔ Mobile Friendly</li>
+        <li>✔ SEO Optimized</li>
+        <li>✔ Fast Performance</li>
+        <li>✔ Business Focused Design</li>
+      </ul>
+    </motion.div>
+  </section>
+
+  {/* Services */}
+  <section id="services" className="px-6 py-16 bg-white">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-12 text-blue-800">Our Services</h2>
+
+      <div className="grid md:grid-cols-4 gap-6">
+        <ServiceCard icon={<Globe />} title="Business Websites" />
+        <ServiceCard icon={<ShoppingBag />} title="Online Shops" />
+        <ServiceCard icon={<Smartphone />} title="Mobile Optimization" />
+        <ServiceCard icon={<ShieldCheck />} title="Website Security" />
+      </div>
+    </div>
+  </section>
+
+  {/* Ultra Short Pricing */}
+  <section id="pricing" className="px-6 py-16 bg-blue-50">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-3xl font-bold mb-6 text-blue-800">Website Packages</h2>
+      <p className="text-lg text-gray-600 mb-10">
+        Affordable, Modern Websites Built For Your Business Success
+      </p>
+
+      <div className="space-y-4 text-lg">
+        <p>🟢 <strong>Starter — From R1500</strong> | Professional 3-page business website</p>
+        <p>🔵 <strong>Business — From R3200</strong> | Full professional multi-page business website</p>
+        <p>🟣 <strong>E-Commerce — From R6500</strong> | Complete online store with payments</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Portfolio */}
+  <section id="portfolio" className="px-6 py-16 bg-white">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-12 text-blue-800">Portfolio</h2>
+
+      <div className="grid md:grid-cols-3 gap-6">
+        <PortfolioCard title="Client Business Website" />
+        <PortfolioCard title="Online Clothing Store" />
+        <PortfolioCard title="Corporate Company Website" />
+      </div>
+    </div>
+  </section>
+
+  {/* Testimonials */}
+  <section className="px-6 py-16 bg-blue-50">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-3xl font-bold mb-12 text-blue-800">Client Testimonials</h2>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <Testimonial name="Business Owner" />
+        <Testimonial name="Online Shop Owner" />
+      </div>
+    </div>
+  </section>
+
+  {/* Contact */}
+  <section id="contact" className="px-6 py-16 bg-white">
+    <div className="max-w-3xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Contact Us</h2>
+
+      <div className="grid gap-4">
+        <input className="border rounded-xl p-3" placeholder="Your Name" />
+        <input className="border rounded-xl p-3" placeholder="Email Address" />
+        <textarea className="border rounded-xl p-3" rows={4} placeholder="Your Message" />
+
+        <a href={`mailto:${emailAddress}`}>
+          <Button className="w-full bg-blue-600 hover:bg-blue-700 rounded-xl flex gap-2 justify-center">
+            <Mail /> Send Email
+          </Button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer className="px-6 py-10 text-center text-sm bg-blue-900 text-white">
+    © {new Date().getFullYear()} Jobrg Web Solutions | {emailAddress}
+  </footer>
+
 </div>
 
-<div class="card">
-<h3>Online Shops</h3>
-<p>E-commerce websites for selling products online.</p>
-</div>
+); }
 
-<div class="card">
-<h3>Website Security</h3>
-<p>Secure and protected website setup.</p>
-</div>
+/* Components */
 
-</section>
+function ServiceCard({ icon, title }) { return ( <Card className="rounded-2xl shadow-lg"> <CardContent className="p-6"> <div className="mb-4 text-blue-600">{icon}</div> <h3 className="font-semibold text-lg">{title}</h3> </CardContent> </Card> ); }
 
-<section>
-<h2>About Us</h2>
-<p>
-Jobrg Web Solutions helps small businesses build strong online presence with affordable and professional websites.
-</p>
-</section>
+function PortfolioCard({ title }) { return ( <Card className="rounded-2xl shadow-lg"> <CardContent className="p-6"> <h3 className="font-semibold text-lg">{title}</h3> <p className="text-sm text-gray-600 mt-2">Example client project showcase.</p> </CardContent> </Card> ); }
 
-<section>
-<h2>Contact</h2>
-<div class="card">
-<p>Email: info@jobrgweb.co.za</p>
-<p>Phone / WhatsApp: Add your number here</p>
-<button>Contact Us</button>
-</div>
-</section>
-
-<footer>
-<p>© 2026 Jobrg Web Solutions</p>
-</footer>
-
-</body>
-</html>
+function Testimonial({ name }) { return ( <Card className="rounded-2xl shadow-lg"> <CardContent className="p-6"> <div className="flex mb-3 text-yellow-500"> <Star /><Star /><Star /><Star /><Star /> </div> <p className="text-gray-600"> "Great service, fast delivery and very professional website design." </p> <p className="mt-4 font-semibold">— {name}</p> </CardContent> </Card> ); }
